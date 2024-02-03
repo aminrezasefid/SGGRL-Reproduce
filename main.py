@@ -290,7 +290,8 @@ def main(args):
                                             'train_cl_loss': train_cl_loss, 'val_all_loss': val_all_loss,
                                             'val_lab_loss': val_lab_loss, 'val_cl_loss': val_cl_loss},
                            global_step=int(epoch + 1))
-
+        print("epoch:" + str(epoch) + ", all_loss:" + str(train_all_loss) + ", lab_loss:" + str(
+            train_lab_loss) + ", cl_loss:" + str(train_cl_loss)+", val_cl_loss:"+str(val_lab_loss)+", val_all_loss:"+str(val_all_loss) +", val_lab_loss:"+str(val_lab_loss))
         writer.add_scalars(main_tag='result', tag_scalar_dict={'val_result': val_result}, global_step=int(epoch + 1))
         if best_result is None or (best_result < val_result and args.task_type == 'class') or \
                 (best_result > val_result and args.task_type == 'reg'):
