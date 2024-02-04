@@ -179,7 +179,7 @@ def main(args):
     logger = logging.getLogger(logs_file)
     fh = logging.FileHandler(logs_file)
     logger.addHandler(fh)
-    logging.basicConfig(level=logging.DEBUG,
+    logging.basicConfig(level=logging.INFO,
                         filename=logs_file,
                         filemode='w',
                         format='%(asctime)s - %(filename)s[line:%(lineno)d] - %(levelname)s: %(message)s')
