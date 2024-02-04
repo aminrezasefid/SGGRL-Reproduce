@@ -308,8 +308,9 @@ def main(args):
         torch.cuda.empty_cache()
 
     for handler in logger.handlers:
-        handler.close()
         logger.removeHandler(handler)
+        handler.close()
+        
 
 
 
