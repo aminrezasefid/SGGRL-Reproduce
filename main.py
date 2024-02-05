@@ -187,7 +187,7 @@ def main(args):
 
     # device init
     if (torch.cuda.is_available() and args.cuda):
-        device = torch.device('cuda:{}'.format(args.gpu))
+        device = torch.device('cuda')
         torch.cuda.empty_cache()
         logger.info("Device set to : " + str(torch.cuda.get_device_name(device)))
     else:
