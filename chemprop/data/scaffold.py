@@ -144,7 +144,7 @@ def log_scaffold_stats(data: MoleculeDataset,
     for index_set in index_sets:
         data_set = [data[i] for i in index_set]
         targets = [d.targets for d in data_set]
-        targets = np.array(targets, dtype=np.float)
+        targets = np.array(targets, dtype=np.float64)
         target_avgs.append(np.nanmean(targets, axis=0))
         counts.append(np.count_nonzero(~np.isnan(targets), axis=0))
     stats = [(target_avgs[i][:num_labels], counts[i][:num_labels]) for i in range(min(num_scaffolds, len(target_avgs)))]

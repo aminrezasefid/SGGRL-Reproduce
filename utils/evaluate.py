@@ -17,7 +17,7 @@ def eval_rocauc(input_dict):
         # AUC is only defined when there is at least one positive data.
         if np.sum(y_true[:, i] == 1) > 0 and np.sum(y_true[:, i] == 0) > 0:
             # ignore nan values
-            y = np.array(y_true[:, i], dtype=np.float)
+            y = np.array(y_true[:, i], dtype=np.float64)
             y[y < 0] = np.nan
             is_labeled = y == y
             rocauc_list.append(roc_auc_score(y_true[is_labeled, i], y_pred[is_labeled, i]))
