@@ -21,7 +21,7 @@ from chemprop.features import get_features_generator
 from chemprop.data.scaler import StandardScaler
 from pgl.utils.data import Dataloader
 from torch_geometric.data import Data, DataLoader, Batch
-from chemprop.data.scaffold import log_scaffold_stats, scaffold_split
+from chemprop.data.scaffold import log_scaffold_stats, scaffold_split, orig_scaffold_split
 from torch.utils.data.dataset import Dataset
 
 rdBase.DisableLog('rdApp.*')
@@ -389,7 +389,8 @@ def split_data(data: MoleculeDataset,
             data_split.append([data[i] for i in split_indices[split]])
         train, val, test = tuple(data_split)
         return MoleculeDataset(train), MoleculeDataset(val), MoleculeDataset(test)
-
+    elif split_type=="orig-scaffold":
+        return orig_scaffold_split(data, sizes=sizes)
     elif split_type == 'predetermined':
         if not val_fold_index:
             assert sizes[2] == 0  # test set is created separately so use all of the other data for train and val
