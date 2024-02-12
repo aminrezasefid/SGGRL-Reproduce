@@ -116,9 +116,9 @@ def split(self,
         valid_dataset = dataset[valid_idx]
         test_dataset = dataset[test_idx]
         return train_dataset, valid_dataset, test_dataset
-def orig_scaffold_split(dataset,size):
+def orig_scaffold_split(dataset,sizes):
     N = len(dataset)
-    frac_train,frac_valid,frac_test=size
+    frac_train,frac_valid,frac_test=sizes
     # create dict of the form {scaffold_i: [idx1, idx....]}
     all_scaffolds = {}
     for i in range(N):
