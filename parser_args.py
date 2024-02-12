@@ -68,7 +68,7 @@ def get_args():
     parser.add_argument('--vocab_num', type=int, default=0)
     parser.add_argument('--task_type', type=str, default='reg', help='classification, reg')
     parser.add_argument('--split_type', type=str, default='random',
-                        choices=['random', 'scaffold_balanced', 'predetermined', 'crossval', 'index_predetermined'])
+                        choices=['random', 'scaffold_balanced', 'predetermined', 'crossval', 'index_predetermined','orig-scaffold'])
     parser.add_argument('--folds_file', type=str, default=None, help='Optional file of fold labels')
     parser.add_argument('--split_sizes', type=float, nargs=3, default=[0.8, 0.1, 0.1],
                         help='Split proportions for train/validation/test sets')
