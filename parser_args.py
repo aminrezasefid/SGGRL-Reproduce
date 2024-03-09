@@ -56,7 +56,7 @@ def get_args():
                              'from max_lr to final_lr.')
 
     ''' Options '''
-    parser.add_argument('--gpu', type=int, default=0)
+    parser.add_argument('--gpu', type=int, default=-1)
     parser.add_argument('--seed', type=int, default=1)
     parser.add_argument('--cuda', type=int, default=1)
     parser.add_argument('--dataset', type=str, default='esol')
